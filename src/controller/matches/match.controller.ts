@@ -30,7 +30,11 @@ export class MatchController {
         MatchHelper.getBasicDataFromParticipants(match.info.participants);
       res.status(200).json({
         message: 'OK',
-        data: basicDataFromParticipants,
+        data: {
+          basicDataFromParticipants,
+          matchInfo: match.info,
+          matchMetadata: match.metadata,
+        },
         statusCode: 200,
       });
     } catch (error) {
